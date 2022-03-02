@@ -1,0 +1,35 @@
+﻿@{
+}
+
+@model Book
+
+@* calls on books model to generate a dynamic list of books *@
+
+<div class="card card-outline-primary m-1 p-1">
+
+    <div class="bg-dark text-white p-2">
+        <h3>@Model.Title</h3>
+
+        <span class="badge bg-info" style="float: right">
+            Price: $@Model.Price
+        </span>
+    </div>
+    <br />
+    <ul>
+        <li>Author: @Model.Author</li>
+        <li>Publisher: @Model.Publisher</li>
+        <li>ISBN: @Model.Isbn</li>
+        <li>Classification/Category: @Model.Classification/@Model.Category</li>
+        <li>Number of Pages: @Model.PageCount</li>
+    </ul>
+
+    @* creates a purchase button and carries the book id with it as well as the url to return to *@
+    <form method="post" asp-page="/Purchase">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm" style="float: right">Purchase</button>
+        </span>
+    </form>
+</div>

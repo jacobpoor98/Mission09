@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    @* creates a layout for the page you visit when you purchase a book *@
+    <div class="bd-dark text-white p-2">
+        <span class="navbar-brand m-lg-2">
+            THE BOOK COLLECTION
+        </span>
+    </div>
+
+    <div class="m-1 p-1">
+        @RenderBody()
+    </div>
+</body>
+</html>
