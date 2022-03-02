@@ -24,6 +24,7 @@
     <None Remove="Componenets\" />
     <None Remove="Pages\" />
     <None Remove="Views\Donation\" />
+    <None Remove="Views\Shared\Components\CartSummary\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
@@ -33,5 +34,6 @@
     <Folder Include="Components\" />
     <Folder Include="Pages\" />
     <Folder Include="Views\Purchase\" />
+    <Folder Include="Views\Shared\Components\CartSummary\" />
   </ItemGroup>
 </Project>

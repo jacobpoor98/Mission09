@@ -1,34 +1,34 @@
 ﻿<Properties StartupConfiguration="{6A21751D-2A49-4777-9929-72C2454BAF2B}|Default">
   <MonoDevelop.Ide.ItemProperties.Mission07 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Views/Purchase/Purchase.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Mission07/Views/Shared/_Layout.cshtml">
     <Files>
-      <File FileName="Mission07/Pages/Purchase.cshtml" Line="50" Column="70" />
-      <File FileName="Mission07/Models/Basket.cs" Line="12" Column="24" />
-      <File FileName="Mission07/Models/SessionBasket.cs" Line="23" Column="42" />
-      <File FileName="Mission07/Startup.cs" Line="48" Column="80" />
-      <File FileName="Mission07/Pages/Purchase.cshtml.cs" Line="48" Column="66" />
-      <File FileName="Mission07/Models/Purchase.cs" Line="18" Column="41" />
-      <File FileName="Mission07/Models/BookstoreContext.cs" Line="24" Column="52" />
-      <File FileName="Mission07/Controllers/PurchaseController.cs" Line="47" Column="31" />
-      <File FileName="Mission07/Models/IPurchaseRepository.cs" Line="10" Column="46" />
-      <File FileName="Mission07/Models/EFPurchaseRepository.cs" Line="23" Column="14" />
-      <File FileName="Mission07/Pages/PurchaseCompleted.cshtml" Line="7" Column="79" />
-      <File FileName="Mission07/Pages/PurchaseCompleted.cshtml.cs" Line="1" Column="1" />
-      <File FileName="Mission07/Views/Purchase/Purchase.cshtml" Line="4" Column="9" />
+      <File FileName="Mission07/Startup.cs" Line="1" Column="1" />
+      <File FileName="Mission07/Components/CartSummaryViewComponent.cs" Line="7" Column="6" />
+      <File FileName="Mission07/Views/Shared/Components/CartSummary/Default.cshtml" Line="17" Column="44" />
+      <File FileName="Mission07/Pages/Purchase.cshtml" Line="42" Column="13" />
+      <File FileName="Mission07/Models/Basket.cs" Line="1" Column="1" />
+      <File FileName="Mission07/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Mission07" expanded="True">
             <Node name="Mission07" expanded="True">
+              <Node name="Components" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
+                <Node name="Purchase.cshtml" expanded="True" />
                 <Node name="PurchaseCompleted.cshtml" expanded="True" />
               </Node>
               <Node name="Views" expanded="True">
-                <Node name="Purchase" expanded="True">
-                  <Node name="Purchase.cshtml" selected="True" />
+                <Node name="Purchase" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="Components" expanded="True">
+                    <Node name="CartSummary" expanded="True" />
+                  </Node>
+                  <Node name="_Layout.cshtml" selected="True" />
                 </Node>
               </Node>
             </Node>

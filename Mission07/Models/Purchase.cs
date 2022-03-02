@@ -7,6 +7,7 @@ namespace Mission07.Models
 {
     public class Purchase
     {
+        // creates the table for Purchases using PurchaseId as the primary key
         [Key]
         [BindNever]
         public int PurchaseId { get; set; }
@@ -14,6 +15,7 @@ namespace Mission07.Models
         [BindNever]
         public ICollection<BasketLineItem> Lines { get; set; }
 
+        // also includes error messages if user doesn't enter anything
         [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Mission07.Models
 {
-    public partial class BookstoreContext : DbContext
+    public class BookstoreContext : DbContext
     {
         public BookstoreContext()
         {
@@ -19,50 +19,66 @@ namespace Mission07.Models
         {
         }
 
-        public virtual DbSet<Book> Books { get; set; }
+        // initializes the migrations for the Books and Purchases tables
+        public DbSet<Book> Books { get; set; }
 
-        public DbSet<Purchase> Purchase { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlite("Data Source = Bookstore.sqlite");
-            }
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Book>(entity =>
-            {
-                entity.HasKey(e => e.BookId);
-
-                entity.HasIndex(e => e.BookId)
-                    .IsUnique();
-
-                entity.Property(e => e.BookId)
-                    .HasColumnName("BookID")
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.Author).IsRequired();
-
-                entity.Property(e => e.Category).IsRequired();
-
-                entity.Property(e => e.Classification).IsRequired();
-
-                entity.Property(e => e.Isbn)
-                    .IsRequired()
-                    .HasColumnName("ISBN");
-
-                entity.Property(e => e.Publisher).IsRequired();
-
-                entity.Property(e => e.Title).IsRequired();
-            });
-
-            OnModelCreatingPartial(modelBuilder);
-        }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        public DbSet<Purchase> Purchases { get; set; }
     }
+    //    public partial class BookstoreContext : DbContext
+    //    {
+    //        public BookstoreContext()
+    //        {
+    //        }
+
+    //        public BookstoreContext(DbContextOptions<BookstoreContext> options)
+    //            : base(options)
+    //        {
+    //        }
+
+    //        public DbSet<Book> Books { get; set; }
+
+    //        public DbSet<Purchase> Purchase { get; set; }
+
+    //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //        {
+    //            if (!optionsBuilder.IsConfigured)
+    //            {
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+    //                optionsBuilder.UseSqlite("Data Source = Bookstore.sqlite");
+    //            }
+    //        }
+
+    //        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //        {
+    //            modelBuilder.Entity<Book>(entity =>
+    //            {
+    //                entity.HasKey(e => e.BookId);
+
+    //                entity.HasIndex(e => e.BookId)
+    //                    .IsUnique();
+
+    //                entity.Property(e => e.BookId)
+    //                    .HasColumnName("BookID")
+    //                    .ValueGeneratedNever();
+
+    //                entity.Property(e => e.Author).IsRequired();
+
+    //                entity.Property(e => e.Category).IsRequired();
+
+    //                entity.Property(e => e.Classification).IsRequired();
+
+    //                entity.Property(e => e.Isbn)
+    //                    .IsRequired()
+    //                    .HasColumnName("ISBN");
+
+    //                entity.Property(e => e.Publisher).IsRequired();
+
+    //                entity.Property(e => e.Title).IsRequired();
+    //            });
+
+    //            OnModelCreatingPartial(modelBuilder);
+    //        }
+
+    //        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    //    }
 }

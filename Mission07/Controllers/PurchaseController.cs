@@ -11,6 +11,7 @@ namespace Mission07.Controllers
 {
     public class PurchaseController : Controller
     {
+        // initialize the IPurchaseRepository and Basket
         private IPurchaseRepository repo { get; set; }
         private Basket basket { get; set; }
 
@@ -21,19 +22,23 @@ namespace Mission07.Controllers
         }
 
         [HttpGet]
-        // GET: /<controller>/
+        // get method for a new purchase
         public IActionResult Checkout()
         {
             return View(new Purchase());
         }
 
+        // post method for the purchase
         [HttpPost]
         public IActionResult Checkout(Purchase purchase)
         {
+            // throw error if they have no items in the cart
             if (basket.Items.Count() == 0)
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
+            // if the cart is valid, save the purchase to the purchases table and
+            // redirect them to the PurchaseCompleted page
             if (ModelState.IsValid)
             {
                 purchase.Lines = basket.Items.ToArray();
@@ -42,6 +47,7 @@ namespace Mission07.Controllers
 
                 return RedirectToPage("/PurchaseCompleted");
             }
+            // else take them to the home page
             else
             {
                 return View();

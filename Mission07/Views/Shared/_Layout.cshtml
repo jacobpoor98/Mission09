@@ -6,15 +6,26 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
 </head>
 <body>
     @* this acts as base html that all cshtml pages will inherit from *@
 
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand m-lg-2">
-            THE BOOK COLLECTION
-        </span>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand m-lg-2">
+                    THE BOOK COLLECTION
+                </div>
+                @* display cart summary alongside the title *@
+                <div class="col-6 text-right">
+                    <vc:cart-summary></vc:cart-summary>
+                </div>
+            </div>
+        </div>
     </div>
+
+    
 
     <div class="row m-1 p-1">
 

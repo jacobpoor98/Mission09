@@ -267,4 +267,4 @@
 /Users/jacob.poor98/Documents/GitHub/Mission09/Mission07/obj/Debug/netcoreapp3.1/Mission07.pdb
 /Users/jacob.poor98/Documents/GitHub/Mission09/Mission07/obj/Debug/netcoreapp3.1/Mission07.genruntimeconfig.cache
 /Users/jacob.poor98/Documents/GitHub/Mission09/Mission07/obj/Debug/netcoreapp3.1/Razor/Views/Purchase/Checkout.cshtml.g.cs
-/Users/jacob.poor98/Documents/GitHub/Mission09/Mission07/bin/Debug/netcoreapp3.1/Mission07
+/Users/jacob.poor98/Documents/GitHub/Mission09/Mission07/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/CartSummary/Default.cshtml.g.cs

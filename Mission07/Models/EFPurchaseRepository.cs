@@ -6,6 +6,7 @@ namespace Mission07.Models
 {
     public class EFPurchaseRepository : IPurchaseRepository
     {
+        // initialize the BookstoreContext file and the IPurchaseRepository
         private BookstoreContext context;
 
         public EFPurchaseRepository (BookstoreContext temp)
@@ -13,15 +14,17 @@ namespace Mission07.Models
             context = temp;
         }
 
-        public IQueryable<Purchase> Purchase => context.Purchase.Include(x => x.Lines).ThenInclude(x => x.Book);
+        // make it queryable
+        public IQueryable<Purchase> Purchases => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SavePurchase(Purchase purchase)
         {
+            // add a purchase if non exists
             context.AttachRange(purchase.Lines.Select(x => x.Book));
 
             if (purchase.PurchaseId == 0)
             {
-                context.Purchase.Add(purchase);
+                context.Purchases.Add(purchase);
             }
 
             context.SaveChanges();

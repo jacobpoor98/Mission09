@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Mission07.Pages
 {
+    // simple model related to the PurchaseCompleted Razor Page
     public class PurchaseCompletedModel : PageModel
     {
         public void OnGet()

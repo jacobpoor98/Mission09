@@ -7,9 +7,10 @@
 <p>Please enter your shipping destination details.</p>
 
 <form method="post">
-
+    @* throws error messages if the user doesn't enter anything *@
     <div asp-validation-summary="All" class="text-danger"></div>
 
+    @* this will act as the form to collect purchasee info *@
     <h4>Ship to</h4>
 
     <div class="form-group" asp-action="Checkout">
@@ -44,6 +45,7 @@
         <input asp-for="Country" class="form-control" />
     </div>
 
+    @* submit button *@
     <div class="float-end">
         <input class="btn btn-primary" type="submit" value="Confirm Purchase" />
     </div>

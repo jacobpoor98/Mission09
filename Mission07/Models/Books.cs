@@ -10,6 +10,7 @@ namespace Mission07.Models
 {
     public partial class Book
     {
+        // create Books table with various entries
         [Key]
         [Required]
         public long BookId { get; set; }
