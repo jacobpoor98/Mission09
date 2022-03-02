@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Mission07.Models
@@ -8,7 +9,7 @@ namespace Mission07.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem (Book book, int qty)
+        public virtual void AddItem (Book book, int qty)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
@@ -30,6 +31,18 @@ namespace Mission07.Models
             }
         }
 
+        // add a remove method
+        public virtual void RemoveItem(Book book)
+        {
+            Items.RemoveAll(x => x.Book.BookId == book.BookId);
+        }
+
+        // add a clear basket method
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
+        }
+
         // create a calculate total function
         public double CalculateTotal()
         {
@@ -39,9 +52,10 @@ namespace Mission07.Models
         }
     }
 
-    // create the basket class
+    // create the basket class with LineID as the key
     public class BasketLineItem
     {
+        [Key]
         public int LineID { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }

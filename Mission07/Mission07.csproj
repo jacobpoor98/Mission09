@@ -23,6 +23,7 @@
     <None Remove="Views\Shared\Components\Types\" />
     <None Remove="Componenets\" />
     <None Remove="Pages\" />
+    <None Remove="Views\Donation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
@@ -31,5 +32,6 @@
     <Folder Include="Views\Shared\Components\Types\" />
     <Folder Include="Components\" />
     <Folder Include="Pages\" />
+    <Folder Include="Views\Purchase\" />
   </ItemGroup>
 </Project>

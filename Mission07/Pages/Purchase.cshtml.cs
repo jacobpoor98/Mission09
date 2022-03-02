@@ -15,19 +15,20 @@ namespace Mission07.Pages
         // used as an instance in this class
         private IBookProjectRepository repo { get; set; }
 
-        public PurchaseModel (IBookProjectRepository temp)
+        public Basket basket { get; set; }
+
+        public string ReturnUrl { get; set; }
+
+        public PurchaseModel (IBookProjectRepository temp, Basket b)
         {
             repo = temp;
+            basket = b;
         }
-
-        public Basket basket { get; set; }
-        public string ReturnUrl { get; set; }
 
         public void OnGet(string returnUrl)
         {
             // take them back to the returnUrl if exists, else take them to the homepage
             ReturnUrl = returnUrl ?? "/";
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
         }
 
         public IActionResult OnPost(int bookId, string returnUrl)
@@ -35,12 +36,16 @@ namespace Mission07.Pages
             // add the book to the cart via the book Id
             Book b = repo.Books.FirstOrDefault(x => x.BookId == bookId);
 
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
             basket.AddItem(b, 1);
 
-            HttpContext.Session.SetJson("basket", basket);
-
             // redirect back to the ReturnUrl
+            return RedirectToPage(new { ReturnUrl = returnUrl });
+        }
+
+        public IActionResult OnPostRemove(int bookId, string returnUrl)
+        {
+            basket.RemoveItem(basket.Items.First(x => x.Book.BookId == bookId).Book);
+
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }
     }
